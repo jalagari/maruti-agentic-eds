@@ -3,7 +3,7 @@ import renderCardChoice from './card-choice.js';
 import registerSubmitHandler from './submit-handler.js';
 import registerQuestionSync from './question-sync.js';
 
-const PROD_SERVER = 'https://adobe-aem-forms-formfillling-service-deploy-ethos0-b43054.cloud.adobe.io';
+const PROD_SERVER = 'https://adobe-aem-forms-formfillling-service-deploy-ethos1-c08c35.stage.cloud.adobe.io';
 const DEMO_SERVER = 'http://code-news.corp.adobe.com:8080/chatbot/';
 
 //http://code-news.corp.adobe.com:8080/chatbot/
@@ -18,8 +18,8 @@ const DEFAULT_FORMS = [
 export default async function decorate(block) {
   const cfg = readBlockConfig(block);
   const isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-  //const serverUrl = cfg['server-url'] || (isLocal ? DEV_SERVER : PROD_SERVER);
-  const serverUrl = cfg['server-url'] || (isLocal ? DEV_SERVER : DEMO_SERVER);
+  const serverUrl = cfg['server-url'] || (isLocal ? DEV_SERVER : PROD_SERVER);
+  //const serverUrl = cfg['server-url'] || (isLocal ? DEV_SERVER : DEMO_SERVER);
 
   await loadCSS(`${serverUrl}/chatbot/chatbot.css`);
 
